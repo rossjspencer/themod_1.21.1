@@ -1,0 +1,19 @@
+{
+	"variants": {
+		"facing=north": {
+			"model": "themod:block/billboard"
+		},
+		"facing=south": {
+			"model": "themod:block/billboard",
+			"y": 180
+		},
+		"facing=east": {
+			"model": "themod:block/billboard",
+			"y": 90
+		},
+		"facing=west": {
+			"model": "themod:block/billboard",
+			"y": 270
+		}
+	}
+}
