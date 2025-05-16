@@ -1,3 +1,4 @@
 {
-	"block.themod.billboard": "Billboard"
+	"block.themod.billboard": "Billboard",
+	"item.themod.missile_launcher": "Launch Terminal"
 }

@@ -4,6 +4,9 @@ import com.mojang.logging.LogUtils;
 import net.callumross.themod.block.ModBlocks;
 import net.callumross.themod.block.entity.ModBlockEntities;
 import net.callumross.themod.item.ModItems;
+import net.callumross.themod.screen.ModMenuTypes;
+import net.callumross.themod.screen.custom.BillboardScreen;
+import net.minecraft.client.gui.screens.MenuScreens;
 import net.minecraft.world.item.CreativeModeTabs;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.common.MinecraftForge;
@@ -40,6 +43,7 @@ public class TheMod {
         ModItems.register(modEventBus);
         ModBlocks.register(modEventBus);
         ModBlockEntities.register(modEventBus);
+        ModMenuTypes.register(modEventBus);
 
         // Register our mod's ForgeConfigSpec so that Forge can create and load the config file for us
         context.registerConfig(ModConfig.Type.COMMON, Config.SPEC);
@@ -55,6 +59,7 @@ public class TheMod {
         if(event.getTabKey() == CreativeModeTabs.BUILDING_BLOCKS)
         {
             event.accept(ModBlocks.BILLBOARD);
+            event.accept(ModItems.MISSILE_LAUNCHER);
         }
     }
 
@@ -69,7 +74,7 @@ public class TheMod {
     public static class ClientModEvents {
         @SubscribeEvent
         public static void onClientSetup(FMLClientSetupEvent event) {
-
+            MenuScreens.register(ModMenuTypes.BILLBOARD_MENU.get(), BillboardScreen::new);
         }
     }
 }
